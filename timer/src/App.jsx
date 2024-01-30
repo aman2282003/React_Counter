@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import Timer from "./Components/Timer"
 
-import './App.css'
 
+import './App.css'
 function App() {
   const [showComponent,setshowComponent] = useState(true)
 
