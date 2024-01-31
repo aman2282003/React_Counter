@@ -1,24 +1,24 @@
 import { useEffect, useState } from "react";
 
 function Timer(){
-    const [count, setcount] = useState(100)
+    const [count, setcount] = useState(50)
     const [Paused, setPaused] = useState(false);
 
     useEffect(() =>{
         let timerId;
         if(count > 0 && Paused == false){
-         timerId = setTimeout(() => {
-                setcount(count - 1)
+         timerId = setInterval(() => {
+                setcount((prev) => prev-1)
             }, 1000) 
         } 
         return () => clearTimeout(timerId);
-    },[count, Paused])
+    },[Paused, count])
 
 
     return(
         <>
             <p>Count value is {count}</p>
-            <button onClick={() => { setcount(100)}}>Reset Timer</button>
+            <button onClick={() => { setcount(50)}}>Reset Timer</button>
             <button onClick={() => {setPaused(true)}}>Pause</button>
             <button onClick={() => {setPaused(false)}}>Resume</button>
         </>
